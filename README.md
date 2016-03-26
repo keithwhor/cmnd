@@ -17,7 +17,7 @@ Next, modify your project's `package.json` to include:
 
 Where `mycli` is the intended name of your command in the CLI.
 
-Next, create a file: `./cli.js` and folder `./commands`:
+Now create a file: `./cli.js` and folder `./commands`:
 
 ```javascript
 #!/usr/bin/env node
@@ -112,3 +112,14 @@ i.e. `mycli command -f my flag` would populate `vflags` with `{f: ['my', 'flag']
 
 `vflags` works identically to flags, but with "verbose flags" (prefixed
 with `--`).
+
+## Acknowledgements
+
+Thanks for checking it out! This is a very simple module initially built to be
+used with [Nodal](http://nodaljs.com), but can be used anywhere you'd like.
+
+Cheers!
+
+Follow me on Twitter, [@keithwhor](http://twitter.com/keithwhor).
+
+Feel free to check out more of [my GitHub projects](http://github.com/keithwhor).
