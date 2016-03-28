@@ -1,7 +1,12 @@
 # CMND
 ## Command Line Interface Utility for Node.js
 
-CMND is a package that lets you easily generate CLI tools in Node.js.
+CMND is a package that lets you easily create CLI tools in Node.js using
+idiomatic ES6 syntax (Node 4+). It's also simple to create associated manual
+(help) pages for each command.
+
+This module was initially built for [Nodal](http://nodaljs.com), but
+can be used anywhere you'd like.
 
 # Usage
 
@@ -101,24 +106,36 @@ constructor() {
 Each command has a `run()` method which takes three arguments: `args`, `flags`,
 and `vflags`.
 
+### args
+
 `args` is the array of arguments, passed before any flags.
 
 i.e. `mycli command alpha beta` would populate `args` with `['alpha', 'beta']`
+
+### flags
 
 `flags` is an object containing any flags (prefixed with `-`), where each entry
 is an array of values passed after the flag
 
 i.e. `mycli command -f my flag` would populate `vflags` with `{f: ['my', 'flag']}`
 
+### vflags
+
 `vflags` works identically to flags, but with "verbose flags" (prefixed
 with `--`).
 
+### Additional notes
+
+All argument arrays passed to `args` or any `flags` or `vflags` options will
+be separated by spaces, *except in the case of quotation marks*. Use
+quotation marks to specify an argument with spaces in it.
+
+i.e. `mycli command -f "argument one" argument_two`
+
 ## Acknowledgements
 
-Thanks for checking it out! This is a very simple module initially built to be
-used with [Nodal](http://nodaljs.com), but can be used anywhere you'd like.
-
-Cheers!
+Thanks for checking out the library! Feel free to submit issues or PRs if you'd
+like to see more features.
 
 Follow me on Twitter, [@keithwhor](http://twitter.com/keithwhor).
 
