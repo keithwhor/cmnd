@@ -10,5 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "colors": "1.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithwhor/cmnd.git"
   }
 }
