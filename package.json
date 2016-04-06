@@ -1,6 +1,6 @@
 {
   "name": "cmnd",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Module for creating CLIs",
   "main": "module.js",
   "scripts": {
