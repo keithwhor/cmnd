@@ -25,7 +25,7 @@ Now create a file: `./cli.js` and folder `./commands`:
 
 'use strict';
 
-const CommandLineInterface = require('cmnd').CommandLineInterface;
+const { CommandLineInterface } = require('cmnd');
 const CLI = new CommandLineInterface();
 
 CLI.load(__dirname, './commands');
