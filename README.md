@@ -1,12 +1,8 @@
 # CMND
 ## Command Line Interface Utility for Node.js
 
-CMND is a package that lets you easily create CLI tools in Node.js using
-idiomatic ES6 syntax (Node 4+). It's also simple to create associated manual
-(help) pages for each command.
-
-This module was initially built for [Nodal](http://nodaljs.com), but
-can be used anywhere you'd like.
+CMND is a package that lets you easily create CLI tools in Node.js.
+It's also simple to create associated manual (help) pages for each command.
 
 # Usage
 
@@ -40,46 +36,33 @@ Finally, populate your commands directory with your commands, here's an example
 file: `./commands/example.js`
 
 ```javascript
-module.exports = (() => {
+const { Command } = require('cmnd');
 
-  'use strict';
+class ExampleCommand extends Command {
 
-  const Command = require('cmnd').Command;
-
-  class ExampleCommand extends Command {
-
-    constructor() {
-
-      super('example');
-
-    }
-
-    help() {
-
-      return {
-        description: 'An example command',
-        args: ['example_arg1', 'example_arg2'],
-        flags: {flag: 'An example flag'},
-        vflags: {vflag: 'An example verbose flag'}
-      };
-
-    }
-
-    run(args, flags, vflags, callback) {
-
-      // Run code here.
-      // To throw an error, use: callback(new Error(msg))
-      // To optionally return a result, use: callback(null, result)
-
-      callback(null);
-
-    }
-
+  constructor() {
+    // Name of the command
+    super('example');
   }
 
-  return ExampleCommand;
+  help () {
+    return {
+      description: 'An example command',
+      args: ['example_arg1', 'example_arg2'],
+      flags: {flag: 'An example flag'},
+      vflags: {vflag: 'An example verbose flag'}
+    };
+  }
 
-})();
+  run (params) {
+    // Run code here.
+    // To throw an error, throw new Error('an error')
+    // To return a result that gets printed to console, return notUndefinedVar;
+  }
+
+}
+
+module.exports = ExampleCommand;
 ```
 
 ## Creating manual pages (help)
@@ -93,8 +76,8 @@ change the return value of the `help()` method for each command.
 To subclass a command (i.e. `mycli command_name:sub_name`) simply change the `contructor()`
 method in your command to the following:
 
-```
-constructor() {
+```javascript
+constructor () {
 
   super('command_name', 'sub_name');
 
