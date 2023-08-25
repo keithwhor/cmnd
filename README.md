@@ -54,7 +54,7 @@ class ExampleCommand extends Command {
     };
   }
 
-  run (params) {
+  async run (params) {
     // Run code here.
     // To throw an error, throw new Error('an error')
     // To return a result that gets printed to console, return notUndefinedVar;
